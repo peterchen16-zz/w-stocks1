@@ -1,0 +1,9 @@
+1. select patterns(both chart and candle)
+
+2. choose your strategy long/short stock, call/put options
+
+3. set support, resistance, and stop loss lines
+
+4. do as many stimulated/paper trades as possible until your're comfortable and winning at least 70% of the time
+
+5. Know your mentality and how to turn it into a winning mentality

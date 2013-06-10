@@ -1,0 +1,29 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+
+<form method="post" action="/historical_trendicator" style="display:inline;margin-top:0.1cm;">
+
+<a href="/my_account"><font color="white" size="6">|</font><font color="44D9F2" size="6">Historical Trendicator</font></a>
+&nbsp&nbsp&nbsp&nbsp
+<select name="market_choice" onchange='this.form.submit()'>
+	<option>--Market--</option>
+	{% if market_selected == "US" %}
+	<option value="US" selected>US</option>
+	{% else %}
+	<option value="US">US</option>
+	{% endif %}
+</select>
+<noscript><input type="submit" value="Submit"></noscript>
+</form>
+<br><br>
+<font color=white size=4>--{{ market }} Market--</font>
+<br>
+{% for trend in trendicators %}
+
+<img src="images/market_trend/{{ trend.combined_degree }}.png" title="W-Stocks Market Trendicator: degree {{ trend.combined_degree }} {{ trend.combined_trend }} for next next trading day after {{ trend.date }}">
+
+{% endfor %}
+
+{% endblock %}

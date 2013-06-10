@@ -1,0 +1,78 @@
+#logo{
+}
+
+body
+{
+background-color:grey;
+}
+
+img
+{
+padding-bottom: 10px;
+}
+
+#second_th{
+padding-top:0.5cm;
+padding-left:50px;
+}
+
+#menu{
+}
+
+#logo{
+}
+
+#background-img{
+	position:absolute;
+	top: 2cm;
+	left: 16cm;
+}
+
+#today{
+	padding: 0px;
+}
+
+#login{
+	background-color: white;
+	padding: 2px;
+	border-radius:5px;
+	color: grey;
+}
+
+#login:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+
+#SignUp{
+	background-color: white;
+	padding: 2px;
+	border-radius:5px;
+	color: grey;
+}
+
+#SignUp:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+
+#top_right{
+	position:absolute;
+	top:0px;
+	right:3px;
+	min-width:170px;
+}
+
+
+#info{
+	color: white;
+	font-size: 100%;
+	line-height:150%;
+	float: center;
+}
+
+#sample_chart{
+}
+
+#stock_info{
+	background-color:93EA47;
+	max-width:670px;
+}
+
+#copyright{
+	float:center;
+}

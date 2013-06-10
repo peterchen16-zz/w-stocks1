@@ -1,0 +1,20 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+<a href="/contact_us"><font color="white" size="6">|</font><font color="44D9F2" size="6">Contact Us</font></a>
+&nbsp&nbsp&nbsp&nbsp<br><br> 
+
+{% if message1 %}
+<font color=white>{{ message1 }}</font><br>
+<font color=white>{{ message2 }}</font><br>
+{% endif %}
+
+<form method="post" action="/contact_us">
+<input type="text" name="name" placeholder="Name" style="width:197px;font-size:100%;padding:2px;">
+<input type="text" name="email" placeholder="Email" style="width:200px;font-size:100%;padding:2px;"><br>
+<textarea name="comments" cols="25" rows="5" placeholder="Questions/Suggestions" style="width:400px;height:400px;font-size:100%;padding:2px;"></textarea><br>
+<input type="submit" value="Submit" style="width:70px; height:30px;"/>
+</form>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+indexes:
+
+- kind: PatternDB 
+  properties: 
+  - name: pattern_name 
+  - name: date
+  
+- kind: TransactionDB
+  properties:
+  - name: email
+  - name: date
+    direction: desc
+    
+- kind: PatternDB
+  properties:
+  - name: type
+  - name: date
+  
+- kind: CandlePatternDB
+  properties:
+  - name: pattern_name
+  - name: date
+    direction: desc
+
+- kind: CandlePatternDB
+  properties:
+  - name: date
+  - name: market
+  - name: type
+  - name: pattern_name
+  
+- kind: StatsDB
+  properties:
+  - name: market
+  - name: date
+    direction: desc
+    
+- kind: DailyPriceDB
+  properties:
+  - name: symbol
+  - name: date
+    direction: desc
+  - name: price_list
+  
+- kind: DailyPriceDB
+  properties:
+  - name: symbol
+  - name: price_list

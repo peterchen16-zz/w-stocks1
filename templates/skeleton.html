@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>W-Stocks Community {{ title }}</title>
+<meta charset="utf-8">
+<META NAME="description" CONTENT="Free Information on how to invest in stocks that our firm analyzes, that have created a historical pattern and that can become predictable over time.">
+<META NAME="keywords" CONTENT="rolling options,channeling,investing,stock option trading,rolling stocks,rolling,small cap stocks,charting,stocks,wade cook,charts,free pick,rollers,options,stock market,chart service,portfolio,Rolling Stocks,Rolling,Stocks,Rolling Stock,Rollers,Rolling and Stocks,RollingStocks,Stock Market,Rolling Options,Channeling,Options,Portfolio,penny stock, penny stocks, PENNYSTOCK, PENNYSTOCKS, nasdaq, market, investments, trading,Portfolio management,Mutual Funds,Charting,Penny Stocks,Information,Stock Information,Channel Lines,Price Patterns, Support, Resistance,small stocks, penny stocks, investments, stock market,ROLLING STOCK, ROLLING STOCK PICK, ROLLING STOCK LIST, A-Z ROLLING STOCK, ROLLING STOCK STRATEGY, ROLLING STOCK SUPPLIER, ROLLING STOCK INVESTING, ROLLING AND STOCK, ROLLING STOCK CHART, WHAT ARE ROLLING STOCK, LIST OF ROLLING STOCK,Range Riders,Paper Trading,Day Trading,Stock Chart,Channeling,Broker">
+<META NAME="ROBOTS" CONTENT="ALL">
+<link type="text/css" rel="stylesheet" href="stylesheets/skeleton.css" />
+<script type="text/javascript" src="scripts/js/jquery-1.9.0.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#candle").hide();
+  $("#buttoncandle").click(function(){
+    $("#candle").slideToggle();
+  });
+  $("#transactions").hide();
+  $("#buttontransactions").click(function(){
+    $("#transactions").slideToggle();
+  });
+  $("#namechange").hide();
+  $("#buttonname").click(function(){
+    $("#namechange").slideToggle();
+  });
+  $("#passwordchange").hide();
+  $("#buttonpassword").click(function(){
+    $("#passwordchange").slideToggle();
+  });
+  $("#renewplan").hide();
+  $("#buttonrenew").click(function(){
+    $("#renewplan").slideToggle();
+  });
+  $("#starttrial").hide();
+  $("#buttontrial").click(function(){
+    $("#starttrial").slideToggle();
+  });
+  $("#open_close").click(function(){
+    $(".chart").slideToggle();
+    var htmlstr = $(this).html();
+    if (htmlstr == "Compact View")
+    	{
+    	$(this).html("Chart View");
+    	}
+    if (htmlstr == "Chart View")
+    	{
+    	$(this).html("Compact View");
+    	}
+  });
+});
+</script>
+
+</head>
+<body>
+  	<STYLE TYPE="text/css">
+	a:link { color: white; text-decoration: none; }
+	a:visited { color: white; }
+	a:hover { color: white; border-bottom: 1px dotted; }
+	a.s{{ current_page }} { border-bottom: 1px dotted; }
+	</STYLE>
+
+<div id="panel">
+	<table>
+	<tr><td>
+	<a href="/"><img id="logo" height=75px width=200px src="images/w-logo.png" alt="logo"/></a>
+	</tr></td>
+	{% if new_patterns %}
+		<tr><td>
+		<a href="/new_patterns">
+	  	<img height=75px width=200px src="images/new-patterns-button-mouseover.png" alt="new-patterns" class="button" id="new-patterns" />
+	  	</a>
+	  	</tr></td>
+	{% else %}
+		<tr><td>
+	  	<a href="/new_patterns">
+	  	<img height=75px width=200px src="images/new-patterns-button.png" onmouseover="this.src='images/new-patterns-button-mouseover.png'" onmouseout="this.src='images/new-patterns-button.png'" alt="new-patterns" class="button" id="new-patterns" />
+	  	</a>
+	  	</tr></td>
+	{% endif %}
+	{% if past_patterns %}
+		<tr><td>
+		<a href="/past_patterns">
+	  	<img height=75px width=200px src="images/past-patterns-button-mouseover.png" alt="past-patterns" class="button" id="past-patterns" />
+	  	</a>
+	  	</tr></td>
+	{% else %}
+		<tr><td>
+	  	<a href="/past_patterns">
+	  	<img height=75px width=200px src="images/past-patterns-button.png" onmouseover="this.src='images/past-patterns-button-mouseover.png'" onmouseout="this.src='images/past-patterns-button.png'" alt="past-patterns" class="button" id="past-patterns" />
+	  	</a>
+	  	</tr></td>
+	{% endif %}
+	<tr><td>
+  	<a href="/search_patterns">
+  	<img height=75px width=200px src="images/search-pattern-button.png" onmouseover="this.src='images/search-pattern-button-mouseover.png'" onmouseout="this.src='images/search-pattern-button.png'" alt="search-patterns" class="button" id="search-patterns" />
+  	</a>
+  	</tr></td>
+  	<tr><td>
+  	<a href="/classroom">
+  	<img height=75px width=200px src="images/classroom-button.png" onmouseover="this.src='images/classroom-button-mouseover.png'" onmouseout="this.src='images/classroom-button.png'" alt="classroom" class="button" id="classroom" />
+  	</a>
+  	</tr></td>
+  	<tr><td>
+  	<a href="/about_us">
+  	<img height=75px width=200px src="images/about-us-button.png" onmouseover="this.src='images/about-us-button-mouseover.png'" onmouseout="this.src='images/about-us-button.png'" alt="about-us" class="button" id="about-us" />
+  	</a>
+  	</tr></td>
+  	<tr><td>
+    <a href="/fyi">
+  	<img height=75px width=200px src="images/fyi-button.png" onmouseover="this.src='images/fyi-button-mouseover.png'" onmouseout="this.src='images/fyi-button.png'" alt="fyi" class="button" id="fyi" />
+  	</a><br>
+  	</tr></td>
+  	<tr><td>
+  	<img src="images/line.png" id="line" /><br>
+  	<a href="/contact_us">Contact Us</a>&nbsp&nbsp
+  	<a href="/privacy_statement">Privacy Statement</a>&nbsp&nbsp<br>
+  	<a href="/disclaimer">Disclaimer</a>&nbsp&nbsp
+  	<a href="/chat">Chat</a>
+  	</tr></td>
+  	</table>
+</div>
+
+<div id="top_right">
+<table style="float:right; right:10px;">
+	{% if user %}
+	<tr>
+	<th>
+  	<a href="/sign_out">
+	  	<div id="sign out">
+			<font size="3"><b>Sign Out</b></font>
+		</div>
+	</a>
+	</th>
+	<th style="padding-left:3px; padding-bottom: 6px;">
+		<font color="44D9F2" size="6"><b>|</b></font><br>
+	</th>
+	<th style="padding-left:3px;">
+		<a href="/my_account">
+			<div id="MyAccount">
+				<font size="3"><b>My Account</b></font>
+			</div>
+		</a>
+	</th>
+	</tr>
+	{% else %}
+	<tr>
+	<th>
+	<a href="/login">
+  	<div id="login">
+	<font size="3"><b>Login</b></font>
+	</div>
+	</a>
+	</th>
+	<th style="padding-left:3px; padding-bottom: 6px;">
+		<font color="44D9F2" size="6"><b>|</b></font><br>
+	</th>
+	<th style="padding-left:3px;">
+		<a href="/sign_up">
+		<div id="SignUp">
+			<font size="3"><b>SignUp</b></font>
+		</div>
+		</a>
+	</th>
+	</tr>
+	{% endif %}
+</table>
+</div>
+
+<div id="content" style="float:left;">
+{% block bodycontent %}
+	Replace
+{% endblock %}
+</div>
+
+{% if patterns %}
+<div id="up_arrow">
+<a href="#"><img src="images/up-arrow-green.png" onmouseover="this.src='images/up-arrow-blue.png'" onmouseout="this.src='images/up-arrow-green.png'"></a>
+</div>
+{% endif %}
+
+{% if user %}
+{% if patterns %}
+<div id="market_trend">
+<a href="/historical_trendicator">
+<img src="images/market_trend/{{ ratio }}.png" title="W-Stocks Market Trendicator: degree {{ ratio }} {{ trend }} for next next trading day after {{ date }}">
+</a>
+</div>
+{% endif %}
+{% endif %}
+
+</body>
+
+</html>

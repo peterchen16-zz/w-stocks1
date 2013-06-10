@@ -1,0 +1,11 @@
+<script type="text/javascript">
+function isMobile() {
+	var index = navigator.appVersion.indexOf("Mobile");
+	return (index > -1);
+}
+</script>
+<script>
+	if (isMobile()) {
+		window.location = "http://mobile.w-stocks.appspot.com/"
+	}
+</script>

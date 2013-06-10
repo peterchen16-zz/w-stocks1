@@ -1,0 +1,128 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+<a href="/my_account"><font color="white" size="6">|</font><font color="44D9F2" size="6">My Account</font></a>
+&nbsp&nbsp&nbsp&nbsp<font color="white">{{ message }}</font> <br><br><br> 
+
+
+{% if user.accept_disclaimer %}
+<font color=white>
+Your Email: <font color="44D9F2"><b>{{ user.email }}</b></font><br>
+Your Name: <font color="44D9F2"><b>{{ user.name }}</b></font> <button id="buttonname">Change My Name</button><br>
+<div id="namechange">
+<form  style="margin-bottom:0;" action="/my_account?action=change_name" method="POST">
+<input type="text" name="new_name" placeholder="New Name" style="width:197px;font-size:100%;padding:2px;">
+<input type="submit" value="Change" style="width:70px; height:30px;"/>
+</form>
+</div>
+Your Password: <font color="44D9F2"><b>{{ user.password }}</b></font> <button id="buttonpassword">Change My Password</button><br>
+<div id="passwordchange">
+<form style="margin-bottom:0;" action="/my_account?action=change_password" method="POST">
+<input type="text" name="new_password" placeholder="New Password" style="width:197px;font-size:100%;padding:2px;">
+<input type="submit" value="Change" style="width:70px; height:30px;"/>
+</form>
+</div>
+Latest Plan: <font color="44D9F2"><b>{{ user.current_plan }}</b></font> ends/ended at <font color="44D9F2"><b>{{ user.subscription_end }}</b></font> 
+<font color=white>
+{% if user.automatic_renew %}
+(Recurring)
+{% else %}
+(Non-Recurring)
+{% endif %}
+<button style="margin-bottom:0;" id="buttonrenew">Renew My Latest Plan</button><br> 
+<div id="renewplan">
+<font color=white>Do you want to renew your latest plan?</font>
+<form  style="margin-bottom:0; display:inline;" action="/my_account?action=renew_plan" method="POST">
+<input type="submit" value="Yes" style="width:70px; height:30px;"/>
+</form>
+</div>
+<table>
+<tr><th><button id="buttontransactions">Show My Transaction History</button></th>   <th><button style="margin-bottom:0;" id="buttontrial">Start My 7 Day Trial</button></th></tr> 
+</table>
+<div id="starttrial">
+<font color=white>Do you want to start your 7 days trial? No card needed.</font>
+<form  style="margin-bottom:0; display:inline;" action="/my_account?action=start_trial" method="POST">
+<input type="submit" value="Yes" style="width:70px; height:30px;"/>
+</form>
+</div>
+<div id="transactions">
+<table cellspacing="20">
+<th><font color="44D9F2"><b>Plan Name</b></font></th><th><font color="44D9F2"><b>Date</b></font></th><th><font color="44D9F2"><b>email</b></font></th>
+<th><font color="44D9F2"><b>Order ID</b></font></th><th><font color="44D9F2"><b>Price</b></font></th>
+{% for transaction in transactions %}
+<tr><td><font color=white>{{ transaction.plan }}</font></td><td><font color=white>{{ transaction.date }}</font></td>
+<td><font color=white>{{ transaction.email }}</font></td><td><font color=white>{{ transaction.order_id }}</font></td>
+<td><font color=white>{{ transaction.price }}</font></td></tr>
+{% endfor %}
+</table>
+</div>
+</font>
+
+
+<font color="white" size="6">___________________________________________</font><br><br><br>
+
+
+
+<table border="1" bordercolor="93EA47">
+<tr>
+<td><font color=white size="3">One Week Plan (<font color="44D9F2"><b>1W</b></font>)</font></td>
+<td>
+<form style="margin-bottom:0;padding-left:490px;" action="/my_account?action=1w" method="POST">
+<script
+  src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+  data-key="pk_live_g82gHZY2j1yfdq9VTx32j6wa"
+  data-amount="700"
+  data-name="W-Stocks Community"
+  data-description="1 Week Plan ($7.00)"
+  data-image="images/w-logo2.png">
+</script>
+</form>
+</td>
+</tr>
+<tr>
+<td><font color=white size="3">One Month Plan (<font color="44D9F2"><b>1M</b></font>)</font></td>
+<td>
+<form style="margin-bottom:0;padding-left:490px;" action="/my_account?action=1m" method="POST">
+<script
+  src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+  data-key="pk_live_g82gHZY2j1yfdq9VTx32j6wa"
+  data-amount="1700"
+  data-name="W-Stocks Community"
+  data-description="1 Month Plan ($17.00)"
+  data-image="images/w-logo2.png">
+</script>
+</form>
+</td>
+</tr>
+<tr>
+<td><font color=white size="3">One Year Plan (<font color="44D9F2"><b>1Y</b></font>)</font></td>
+<td>
+<form style="margin-bottom:0;padding-left:490px;" action="/my_account?action=1y" method="POST">
+<script
+  src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+  data-key="pk_live_g82gHZY2j1yfdq9VTx32j6wa"
+  data-amount="10000"
+  data-name="W-Stocks Community"
+  data-description="1 Year Plan ($100.00)"
+  data-image="images/w-logo2.png">
+</script>
+</form>
+</td>
+</tr>
+</table><br>
+<form style="margin-bottom:0;" action="/my_account?action=auto_renew" method="POST">
+<input type="checkbox" name="auto_renew" value="on"><font color=white><i>Automatically Renew My Latest Plan</i></font></input>
+<input type="submit" value="Submit" style="width:70px; height:20px;">
+</form><br>
+<font>*To turn on automatic renew, check the box above, to turn it off, click submit without the check in the box.</font>
+{% else %}
+<font color=white>Please read the disclaimer of W-stocks Community and accept it before entering your account page. 
+By clicking the button below, you are indicating that you have read and accepted the W-stocks Community disclaimer.</font>
+<iframe src="/plain_disclaimer" style="width:700px; height:500px;"></iframe>
+<form action="/my_account?action=accept_disclaimer" method="POST">
+<input type="submit" value="I have read and accepted the disclaimer of W-stocks Community" style="width:400px; height:30px;"/>
+</form>
+{% endif %}
+
+{% endblock %}

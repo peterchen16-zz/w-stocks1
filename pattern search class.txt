@@ -1,0 +1,254 @@
+class PatternSearchString:
+    
+    def __init__(self, date, market, symbol, position, volume, pattern_name, price):
+        
+        self.search_string = "SELECT * FROM PatternDB"
+        self.date = date
+        logging.info(str(self.date))
+        self.market = market
+        logging.info(str(self.market))
+        self.symbol = symbol
+        logging.info(self.symbol)
+        self.type = position
+        logging.info(self.type)
+        self.volume = volume
+        logging.info(str(self.volume))
+        self.pattern_name = pattern_name
+        logging.info(self.pattern_name)
+        self.price = price
+        logging.info(str(self.price))
+        
+    def generate_string(self):
+        
+        if self.date != "" and self.date != "--Date--":
+            self.search_string = self.search_string + " where date = DATE('" + self.date + "')"
+        if self.market != "" and self.market != "--Market--":
+            if "where" not in self.search_string:
+                self.search_string = self.search_string + " where market = '" + str(self.market) + "'"
+            else:
+                self.search_string = self.search_string + " and market = '" + str(self.market) + "'"
+        if self.symbol != "" and self.symbol != "--Symbol--":
+            if "where" not in self.search_string:
+                self.search_string = self.search_string + " where symbol = '" + str(self.symbol) + "'"
+            else:
+                self.search_string = self.search_string + " and symbol = '" + str(self.symbol) + "'"
+        if self.type != "" and self.type != "--POSITION--":
+            if "where" not in self.search_string:
+                self.search_string = self.search_string + " where type = '" + str(self.type) + "'"
+            else:
+                self.search_string = self.search_string + " and type = '" + str(self.type) + "'"
+        if self.volume != "" and self.volume != "--Volume--":
+            logging.info("in volume")
+            if self.volume == "<1M":
+                volume = 1000000
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where volumn <= " + str(volume)
+                else:
+                    self.search_string = self.search_string + " and volumn <= " + str(volume)
+            elif self.volume == ">10M":
+                volume = 10000000
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where volumn <= " + str(volume)
+                else:
+                    self.search_string = self.search_string + " and volumn <= " + str(volume)
+            else:
+                logging.info("volume else")
+                if self.volume == "1M-2M":
+                    volume1 = 1000000
+                    volume2 = 2000000
+                elif self.volume == "2M-3M":
+                    volume1 = 1000000
+                    volume2 = 2000000
+                elif self.volume == "3M-4M":
+                    volume1 = 3000000
+                    volume2 = 4000000
+                elif self.volume == "4M-5M":
+                    volume1 = 4000000
+                    volume2 = 5000000
+                elif self.volume == "5M-6M":
+                    volume1 = 5000000
+                    volume2 = 6000000
+                elif self.volume == "6M-7M":
+                    volume1 = 6000000
+                    volume2 = 7000000
+                elif self.volume == "7M-8M":
+                    volume1 = 7000000
+                    volume2 = 8000000
+                elif self.volume == "8M-9M":
+                    volume1 = 8000000
+                    volume2 = 9000000
+                elif self.volume == "9M-10M":
+                    volume1 = 9000000
+                    volume2 = 10000000
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where volumn >= " + str(volume1) + " and " + " volumn <= " + str(volume2)
+                else:
+                    self.search_string = self.search_string + " and volumn >= " + str(volume1) + " and " + " volumn <= " + str(volume2)
+        if self.pattern_name != "" and self.pattern_name != "--Pattern Type--":
+            if "where" not in self.search_string:
+                self.search_string = self.search_string + " where pattern_name = '" + str(self.pattern_name) + "'"
+            else:
+                self.search_string = self.search_string + " and pattern_name = '" + str(self.pattern_name) + "'"
+        if self.price != "" and self.price != "--Price--":
+            if self.price == "<5":
+                price = 5.0
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where price <= " + str(price)
+                else:
+                    self.search_string = self.search_string + " and price <= " + str(price)
+            elif self.price == ">500":
+                price = 500.0
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where price >= " + str(price)
+                else:
+                    self.search_string = self.search_string + " where price >= " + str(price)
+            else:
+                if self.price == "5-10":
+                    price1 = 5.0
+                    price2 = 10.0
+                elif self.price == "10-20":
+                    price1 = 10.0
+                    price2 = 20.0
+                elif self.price == "20-30":
+                    price1 = 20.0
+                    price2 = 30.0
+                elif self.price == "30-40":
+                    price1 = 30.0
+                    price2 = 40.0
+                elif self.price == "40-50":
+                    price1 = 40.0
+                    price2 = 50.0
+                elif self.price == "50-100":
+                    price1 = 50.0
+                    price2 = 100.0
+                elif self.price == "100-200":
+                    price1 = 100.0
+                    price2 = 200.0
+                elif self.price == "200-300":
+                    price1 = 200.0
+                    price2 = 300.0
+                elif self.price == "300-400":
+                    price1 = 300.0
+                    price2 = 400.0
+                elif self.price == "400-500":
+                    price1 = 400.0
+                    price2 = 500.0
+                if "where" not in self.search_string:
+                    self.search_string = self.search_string + " where price >= " + str(price1) + " and " + " price <= " + str(price2)
+                else:
+                    self.search_string = self.search_string + " and price >= " + str(price1) + " and " + " price <= " + str(price2)
+        return self.search_string
+
+class PatternSearchString1:
+    
+    def __init__(self, date, market, symbol, position, volume, pattern_name, price):
+        
+        self.patterns = PatternDB.all()
+        self.date = date
+        logging.info(str(self.date))
+        self.market = market
+        logging.info(str(self.market))
+        self.symbol = symbol
+        logging.info(self.symbol)
+        self.type = position
+        logging.info(self.type)
+        self.volume = volume
+        logging.info(str(self.volume))
+        self.pattern_name = pattern_name
+        logging.info(self.pattern_name)
+        self.price = price
+        logging.info(str(self.price))
+        
+    def generate_patterns(self):
+        
+        if self.date != "" and self.date != "--Date--":
+            self.patterns = self.patterns.filter('date =', datetime.strptime(str(self.date),'%Y-%m-%d'))
+            #search_string = "SELECT * FROM PatternDB where date = DATE('" + self.date + "')"
+            #self.patterns = db.GqlQuery(search_string)
+            #self.search_string = self.search_string + " where date = DATE('" + self.date + "')"
+        if self.market != "" and self.market != "--Market--":
+            self.patterns = self.patterns.filter('market =', self.market)
+        if self.symbol != "" and self.symbol != "--Symbol--":
+            self.patterns = self.patterns.filter('symbol =', self.symbol)
+        if self.type != "" and self.type != "--POSITION--":
+            self.patterns = self.patterns.filter('type =', self.type)
+        if self.volume != "" and self.volume != "--Volume--":
+            logging.info("in volume")
+            if self.volume == "<1M":
+                volume = 1000000
+                self.patterns = self.patterns.filter('volumn <', volume)
+            elif self.volume == ">10M":
+                volume = 10000000
+                self.patterns = self.patterns.filter('volumn >', volume)
+            else:
+                logging.info("volume else")
+                if self.volume == "1M-2M":
+                    volume1 = 1000000
+                    volume2 = 2000000
+                elif self.volume == "2M-3M":
+                    volume1 = 1000000
+                    volume2 = 2000000
+                elif self.volume == "3M-4M":
+                    volume1 = 3000000
+                    volume2 = 4000000
+                elif self.volume == "4M-5M":
+                    volume1 = 4000000
+                    volume2 = 5000000
+                elif self.volume == "5M-6M":
+                    volume1 = 5000000
+                    volume2 = 6000000
+                elif self.volume == "6M-7M":
+                    volume1 = 6000000
+                    volume2 = 7000000
+                elif self.volume == "7M-8M":
+                    volume1 = 7000000
+                    volume2 = 8000000
+                elif self.volume == "8M-9M":
+                    volume1 = 8000000
+                    volume2 = 9000000
+                elif self.volume == "9M-10M":
+                    volume1 = 9000000
+                    volume2 = 10000000
+                self.patterns = self.patterns.filter('volumn >=', volume1).filter('volumn <=', volume2)
+        if self.pattern_name != "" and self.pattern_name != "--Pattern Type--":
+            self.patterns = self.patterns.filter('pattern_name =', self.pattern_name)
+        if self.price != "" and self.price != "--Price--":
+            if self.price == "<5":
+                price = 5.0
+                self.patterns = self.patterns.filter('price <', price)
+            elif self.price == ">500":
+                price = 500.0
+                self.patterns = self.patterns.filter('price >', price)
+            else:
+                if self.price == "5-10":
+                    price1 = 5.0
+                    price2 = 10.0
+                elif self.price == "10-20":
+                    price1 = 10.0
+                    price2 = 20.0
+                elif self.price == "20-30":
+                    price1 = 20.0
+                    price2 = 30.0
+                elif self.price == "30-40":
+                    price1 = 30.0
+                    price2 = 40.0
+                elif self.price == "40-50":
+                    price1 = 40.0
+                    price2 = 50.0
+                elif self.price == "50-100":
+                    price1 = 50.0
+                    price2 = 100.0
+                elif self.price == "100-200":
+                    price1 = 100.0
+                    price2 = 200.0
+                elif self.price == "200-300":
+                    price1 = 200.0
+                    price2 = 300.0
+                elif self.price == "300-400":
+                    price1 = 300.0
+                    price2 = 400.0
+                elif self.price == "400-500":
+                    price1 = 400.0
+                    price2 = 500.0
+                self.patterns = self.patterns.filter('price >=', price1).filter("price <=", price2)
+        return self.patterns

@@ -1,0 +1,148 @@
+body
+{
+	background-color:grey;
+}
+
+img
+{
+padding-bottom: 5px;
+}
+
+#panel{
+	position:relative;
+	margin-right: 10px;
+}
+
+#content{
+	top: 17px;
+	left: 270px;
+	min-width:800px;
+	position:absolute;
+	font-family:Arial;
+}
+
+.stock_info{
+	background-color:93EA47;
+	max-width:676px;
+}
+
+#page_list{
+	max-width:676px;
+}
+
+#text_area{
+	border: solid 1px #D6D1D1;
+	padding: 5px;
+	font-size: 17px;
+	color: #2a2e2c;
+	max-width: 300px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+#text_area2{
+	border: solid 1px #D6D1D1;
+	padding: 5px;
+	font-size: 17px;
+	color: #2a2e2c;
+	max-width: 420px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+#gmail_login{
+	background-color: white;
+	padding: 2px;
+	max-width: 170px;
+	border-radius:5px;
+	float: left;
+	margin-right: 20px;
+	color: grey;
+}
+
+#gmail_login:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+#yahoo_login:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+
+#yahoo_login{
+	background-color: white;
+	padding: 2px;
+	max-width: 175px;
+	border-radius:5px;
+	float: left;
+	color: grey;
+}
+
+#top_right{
+	position:absolute;
+	top:0px;
+	right:3px;
+	min-width:170px;
+	z-index: 1;
+}
+
+#login{
+	background-color: white;
+	padding: 2px;
+	border-radius:5px;
+	color: grey;
+}
+
+#login:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+
+#SignUp{
+	background-color: white;
+	padding: 2px;
+	border-radius:5px;
+	color: grey;
+}
+
+#SignUp:hover {background-color: #44D9F2; border:0.7px solid; color: white;}
+
+#up_arrow{
+	position:fixed;
+	bottom:0.5cm;
+	right:0.5cm;
+}
+
+#market_trend{
+	position: absolute;
+	top: 1.5cm;
+	right:0.5cm;
+}
+
+/*-------------classroom------------*/
+
+div.number {
+	color: white;
+	font-size: 150%;
+	width: 0;
+	height: 0;
+	border-bottom: 30px solid 93EA47;
+	border-right: 30px solid transparent;
+}
+
+div.pattern_name {
+	background-color:white;
+	padding:2px;
+	border-radius:5px;
+	color:grey;
+}
+
+div.pattern_name:hover{
+	background-color: transparent;
+	color: white;
+}
+
+div.highlight_text{
+	background-color:white;
+	color:grey;
+	padding:2px;
+	border-radius:5px;
+	display:inline;
+	font-weight:normal;
+}
+
+div.highlight_text:hover{
+	background-color:transparent;
+	color:white;
+}

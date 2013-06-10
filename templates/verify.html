@@ -1,0 +1,31 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+
+<font color="white" size="6">|</font><font color="44D9F2" size="6">Verify Your Account - </font> <font color="44D9F2" size="4">It's free and start viewing more new patterns everyday.</font>
+&nbsp&nbsp&nbsp&nbsp
+
+<br><br><br>
+
+<font color=black size="4">Please verify your email account: {{ email }}</font><br>
+
+<form method="post" action="/verify?email={{ email }}">
+<div id="text_area2">
+{% if web_message %}
+	{{ web_message }}
+{% else %}
+	<input type="text" name="password" placeholder="Password - Please enter your password" style="width:420px;font-size:100%;padding: 2px;"/><br>
+	{% if password_message %}
+		{{ password_message }}
+	{% endif %}
+	<input type="text" name="verification code" placeholder="Verification Code - Please enter your verification code" style="width:420px;font-size:100%;padding: 2px;"/><br>
+	{% if code_message %}
+		{{ code_message }}
+	{% endif %}
+{% endif %}
+</div>
+<input type="submit" value="Verify" style="width:70px; height:30px;font-size:100%;"/>
+</form>
+
+{% endblock %}

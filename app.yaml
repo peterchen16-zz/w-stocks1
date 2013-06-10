@@ -1,0 +1,34 @@
+application: w-stocks
+version: 3
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /images
+  static_dir: static/images
+
+- url: /favicon.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon.ico
+
+- url: /stylesheets
+  static_dir: stylesheets 
+
+- url: /scripts
+  static_dir: /scripts
+
+- url: /.*
+  script: index.app
+
+builtins:
+#- datastore_admin: on
+
+- deferred: on
+
+- remote_api: on
+
+libraries:
+- name: django
+  version: "latest"

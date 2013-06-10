@@ -1,0 +1,28 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+<a href="/request"><font color="white" size="6">|</font><font color="44D9F2" size="6">Request</font></a>
+&nbsp&nbsp&nbsp&nbsp<br><br> 
+
+{% if message1 %}
+<font color=white>{{ message1 }}</font><br>
+<font color=white>{{ message2 }}</font><br>
+{% endif %}
+
+<div style="max-width:700px; text-size:120%;">
+{% if not message1 %}
+<font color="white">
+If you want to find a pattern that is not listed in any of the pattern search page, feel free to let us know what kind of pattern you
+are looking for, and we will try our best to find it for you. </font>{% endif %}
+
+<form method="post" action="/request">
+<input type="text" name="name" placeholder="Name" style="width:197px;font-size:100%;padding:2px;">
+<input type="text" name="email" placeholder="Email" style="width:200px;font-size:100%;padding:2px;"><br>
+<textarea name="pattern_description" cols="25" rows="5" placeholder="Include your pattern name and pattern description here" style="width:400px;height:400px;font-size:100%;padding:2px;"></textarea><br>
+<input type="submit" value="Submit" style="width:70px; height:30px;"/>
+</form>
+
+</div>
+
+{% endblock %}

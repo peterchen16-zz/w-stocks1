@@ -1,0 +1,58 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+<a href="/classroom"><font color="white" size="6">|</font><font color="44D9F2" size="6">Classroom</font></a>
+&nbsp&nbsp&nbsp&nbsp<br><br>
+
+<table><tr><td><div class="number">&nbsp<b>1.</b></div></td> <td><font color="44D9F2"><b>Select a Chart / Candle Pattern you want to trade:</b></font></td></tr></table>
+<table cellspacing="20">
+<tr>
+<td><a href="http://www.investopedia.com/terms/c/channel.asp" target="_blank"><font color=white><div class="pattern_name"> Channel </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/a/ascendingchannel.asp" target="_blank"><font color=white><div class="pattern_name"> Up Channel </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/d/descendingchannel.asp" target="_blank"><font color=white><div class="pattern_name"> Down Channel </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/b/breakout.asp" target="_blank"><font color=white><div class="pattern_name"> Break Up </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/b/breakdown.asp" target="_blank"><font color=white><div class="pattern_name"> Break Down </div></font></a></td>
+</tr>
+<tr>
+<td><a href="http://www.investopedia.com/terms/a/ascendingtriangle.asp" target="_blank"><font color=white><div class="pattern_name"> Ascending Triangle </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/d/descendingtriangle.asp"target="_blank"><font color=white><div class="pattern_name"> Descending Triangle </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/d/doubletop.asp" target="_blank"><font color=white><div class="pattern_name"> Double Top </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/d/doublebottom.asp" target="_blank"><font color=white><div class="pattern_name"> Double Bottom </div></font></a></td>
+</tr>
+<tr>
+<td><a href="http://www.investopedia.com/terms/h/head-shoulders.asp" target="_blank"><font color=white><div class="pattern_name"> Head & Shoulders </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/i/inverseheadandshoulders.asp" target="_blank"><font color=white><div class="pattern_name"> Head & Shoulders Inverse </div></font></a></td>
+<td><button id="buttoncandle" style="padding: 2px">Candle Patterns</button></td>
+<td>
+</tr>
+</table>
+<div id="candle">
+<table cellspacing="20">
+<tr>
+<td><a href="http://www.investopedia.com/terms/m/morningstar.asp" target="_blank"><font color=white><div class="pattern_name"> Morning Star </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/b/bullishengulfingpattern.asp" target="_blank"><font color=white><div class="pattern_name"> Bullish Engulfing </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/t/tri-star.asp" target="_blank"><font color=white><div class="pattern_name"> Tri Star </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/r/rising-three-methods.asp" target="_blank"><font color=white><div class="pattern_name"> Rising Three </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/h/hammer.asp" target="_blank"><font color=white><div class="pattern_name"> Hammer </div></font></a></td>
+</tr>
+<tr>
+<td><a href="http://www.investopedia.com/terms/e/eveningstar.asp" target="_blank"><font color=white><div class="pattern_name"> Evening Star </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/b/bearishengulfingp.asp"target="_blank"><font color=white><div class="pattern_name"> Bearish Engulfing </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/t/three_white_soldiers.asp" target="_blank"><font color=white><div class="pattern_name"> Three White Soldiers </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/f/falling-three-methods.asp" target="_blank"><font color=white><div class="pattern_name"> Falling Three </div></font></a></td>
+</tr>
+<tr>
+<td><a href="http://www.investopedia.com/terms/d/dragonfly-doji.asp" target="_blank"><font color=white><div class="pattern_name"> Dragonfly Doji </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/g/gravestone-doji.asp" target="_blank"><font color=white><div class="pattern_name"> Gravestone Doji </div></font></a></td>
+<td><a href="http://www.investopedia.com/terms/t/three_black_crows.asp" target="_blank"><font color=white><div class="pattern_name"> Three Black Crows </div></font></a></td>
+<td>
+<td>
+</table>
+</div><br>
+<table><tr><td><div class="number">&nbsp<b>2.</b></div></td> <td><font color="44D9F2"><b> Choose a strategy: <a href="http://www.investopedia.com/terms/l/long.asp" target="_blank"><div class="highlight_text">Long</div></a>&nbsp/&nbsp<a href="http://www.investopedia.com/terms/s/short.asp" target="_blank"><div class="highlight_text">Short</div></a> stocks, &nbsplong/short&nbsp<a href="http://en.wikipedia.org/wiki/Call_option#Example_of_a_call_option_on_a_stock" target="_blank"><div class="highlight_text">Call</div></a>&nbsp/&nbsp<a href="http://en.wikipedia.org/wiki/Put_option#Example_of_a_put_option_on_a_stock" target="_blank"><div class="highlight_text">Put</div></a> options etc.</b></font></td></tr></table><br>
+<table><tr><td><div class="number">&nbsp<b>3.</b></div></td> <td><font color="44D9F2"><b> Set up a <a href="http://www.investopedia.com/terms/s/support.asp" target="_blank"><div class="highlight_text">support</div></a>&nbsp, <a href="http://www.investopedia.com/terms/r/resistance.asp" target="_blank"><div class="highlight_text">resistance</div></a>&nbsp, <a href="http://www.investopedia.com/terms/p/profit-target.asp" target="_blank"><div class="highlight_text">profit target</div></a> and <a href="http://www.investopedia.com/terms/s/stop-lossorder.asp" target="_blank"><div class="highlight_text">stop loss</div></a> line for your stock. </b></font></td></tr></table><br>
+<table><tr><td><div class="number">&nbsp<b>4.</b></div></td> <td><font color="44D9F2"><b> Practice as many <a href="http://www.investopedia.com/simulator/" target="_blank"><div class="highlight_text">stimulated</div></a> / <a href="http://www.investopedia.com/terms/p/papertrade.asp" target="_blank"><div class="highlight_text">paper</div></a> trades as possible until you're comfortable and winning with your strategy. </b></font></td></tr></table><br>
+<table><tr><td><div class="number">&nbsp<b>5.</b></div></td> <td><font color="44D9F2"><b> Understand your trading mentality(ie. keep a trading diary using <a href="http://www.tradingdiarypro.com/index.php/en/screenshots.html" target="_blank"><div class="highlight_text">software</div></a> or <a href="http://www.investopedia.com/articles/trading/06/tradersdiary.asp" target="_blank"><div class="highlight_text">paper</div></a>) and how to turn it into a winning mentality. </b></font></td></tr></table><br>
+<font color=white size="2">*And Remember there's no bad trader, just lazy traders.</b></font> 
+{% endblock %}

@@ -1,0 +1,4 @@
+cron:
+- description: renew subscriptions
+  url: /renew_subscriptions_everyday
+  schedule: every day 00:01

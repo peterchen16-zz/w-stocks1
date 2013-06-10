@@ -1,0 +1,9 @@
+{% if user %}
+{% if patterns %}
+<div id="market_trend">
+<a href="/historical_trendicator">
+<img src="images/market_trend/{{ ratio }}.png" title="W-Stocks Market Trendicator: degree {{ ratio }} {{ trend }} for next next trading day after {{ date }}">
+</a>
+</div>
+{% endif %}
+{% endif %}

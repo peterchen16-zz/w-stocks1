@@ -1,0 +1,114 @@
+{% extends "skeleton.html" %}
+
+{% block bodycontent %}
+
+{% if no_user %}
+
+<a href="/new_patterns"><font color="white" size="6">|</font><font color="44D9F2" size="6">New Patterns</font></a>
+&nbsp&nbsp&nbsp&nbsp<br><br>
+<font color=white>-Please <a href="/login"><i><font color="44D9F2">Login</font></i></a> or <a href="/sign_up"><i><font color="44D9F2">Sign Up</font></i></a> To View More Patterns-</font>
+<br><br>
+
+{% endif %}
+{% if user %}
+
+<form method="post" action="/new_patterns">
+<a href="/new_patterns"><font color="white" size="6">|</font><font color="44D9F2" size="6">New Patterns</font></a>
+&nbsp&nbsp&nbsp&nbsp
+<select name="pattern_type_choice">
+	<option>--Pattern Type--</option>
+	{% for pattern_type in pattern_types %}
+	{% if pattern_type.name == pattern_type_selected %}
+	<option value="{{ pattern_type.name }}" selected>{{ pattern_type.name }}</option>
+	{% else %}
+	<option value="{{ pattern_type.name }}">{{ pattern_type.name }}</option>
+	{% endif %}
+	{% endfor %}
+</select>
+<select name="position_choice">
+	<option>--Position--</option>
+	{% if position_selected %}
+		{% if position_selected == "Long" %}
+		<option value="Long" selected>Long</option>
+		<option value="Short">Short</option>
+		{% endif %}
+		{% if position_selected == "Short" %}
+		<option value="Long">Long</option>
+		<option value="Short" selected>Short</option>
+		{% endif %}
+		{% if position_selected == "--Position--" %}
+		<option value="Long">Long</option>
+		<option value="Short">Short</option>
+		{% endif %}
+	{% else %}
+	<option value="Long">Long</option>
+	<option value="Short">Short</option>
+	{% endif %}
+</select>
+<input type="submit" name="submit" value="Find">
+</form>
+
+{% if message %}
+<font color=white>-Please <a href="/account"><i><font color="44D9F2">Upgrade Your Membership</font></i></a> To Use More Search Functions-</font>
+{% endif %}
+
+<div id="page_list" style="margin-bottom:0.1cm;">
+{% if prev_page != -1 %}
+<a href="/new_patterns?page={{ prev_page }}&pattern_type_selected={{ pattern_type_selected }}&position_selected={{ position_selected }}"><<</a>
+{% endif %}
+
+{% for page_num in page_list %}
+<a href="/new_patterns?page={{ page_num }}&pattern_type_selected={{ pattern_type_selected }}&position_selected={{ position_selected }}" class=s{{ page_num }}>{{ page_num }}</a>&nbsp
+{% endfor %}
+
+{% if next_page != -1 %}
+<a href="/new_patterns?page={{ next_page }}&pattern_type_selected={{ pattern_type_selected }}&position_selected={{ position_selected }}">>></a>
+{% endif %}
+<br>
+</div>
+{% endif %}
+
+{% for pattern in patterns %}
+<a href="#{{ pattern.symbol }}"> {{ pattern.symbol }}</a>
+{% endfor %}
+
+{% if user %}
+<div style="display:inline;position:absolute;left:15.1cm;"><button id="open_close">Compact View</button></div>
+{% endif %}
+
+
+<br>
+<br>
+{% for pattern in patterns %}
+	<a name="{{ pattern.symbol }}"></a>
+	<div class="chart">
+	<!-- TradingView Widget BEGIN -->
+	<script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script>
+	<script type="text/javascript">
+	new TradingView.widget({
+	  "width": 676,
+	  "height": 300,
+	  "symbol": "{{ pattern.symbol }}",
+	  "interval": "D",
+	  "toolbar_bg": "#E4E8EB",
+	  "save_image": false
+	});
+	</script>
+	<!-- TradingView Widget END -->
+	</div>
+	<div id="stock_info" class="stock_info">
+	<font color="white" size=3>Date:</font> {{ pattern.date }}
+	<font color="white" size=3>Market:</font> {{ pattern.market }}
+	<font color="white" size=3>Symbol:</font>	{{ pattern.symbol }}
+	<font color="white" size=3>Price:</font> {{ pattern.price }}
+	<font color="white" size=3>Pattern:</font> {{ pattern.pattern_name }}
+	<font color="white" size=3>Type:</font> {{ pattern.type }}
+	<font color="white" size=3>Volume:</font> {{ pattern.volumn }}
+	</div>
+	<div style="margin-top:0.1cm;display:inline;position:absolute;left:15.7cm;">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.w-stocks.com/?volume={{ pattern.volumn }}&symbol={{ pattern.symbol }}" data-text="{{ pattern.symbol }} is showing a {{ pattern.pattern_name }} pattern" data-via="W_Stocks" data-hashtags="{{ pattern.symbol }}, {{ pattern.pattern_name }}, stocks, w-stocks, stockpatterns">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	</div>
+	<br><br>
+{% endfor %}
+{% endblock %}

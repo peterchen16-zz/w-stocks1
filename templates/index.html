@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>W-Stocks Community</title>
+<meta charset="utf-8">
+<META NAME="description" CONTENT="Free Information on how to invest in stocks that our firm analyzes, that have created a historical pattern and that can become predictable over time.">
+<META NAME="keywords" CONTENT="rolling options,channeling,investing,stock option trading,rolling stocks,rolling,small cap stocks,charting,stocks,wade cook,charts,free pick,rollers,options,stock market,chart service,portfolio,Rolling Stocks,Rolling,Stocks,Rolling Stock,Rollers,Rolling and Stocks,RollingStocks,Stock Market,Rolling Options,Channeling,Options,Portfolio,penny stock, penny stocks, PENNYSTOCK, PENNYSTOCKS, nasdaq, market, investments, trading,Portfolio management,Mutual Funds,Charting,Penny Stocks,Information,Stock Information,Channel Lines,Price Patterns, Support, Resistance,small stocks, penny stocks, investments, stock market,ROLLING STOCK, ROLLING STOCK PICK, ROLLING STOCK LIST, A-Z ROLLING STOCK, ROLLING STOCK STRATEGY, ROLLING STOCK SUPPLIER, ROLLING STOCK INVESTING, ROLLING AND STOCK, ROLLING STOCK CHART, WHAT ARE ROLLING STOCK, LIST OF ROLLING STOCK,Range Riders,Paper Trading,Day Trading,Stock Chart,Channeling,Broker">
+<META NAME="ROBOTS" CONTENT="ALL">
+<link type="text/css" rel="stylesheet" href="stylesheets/index.css" />
+<script type="text/javascript">
+<!--
+var bname = navigator.appName;
+if (bname.search(/microsoft/i) == 0)
+   {
+   window.location="/default_browser";
+   }
+//-->
+</script>
+</head>
+  <body>
+  	<STYLE TYPE="text/css">
+	a:link { color: white; text-decoration: none; }
+	a:hover { color: white; border-bottom: 1px dotted; }
+	a:visited { color: white; }
+	</STYLE>
+	
+	<table>
+	<tr>
+	<th>
+	<a href="/">
+  	<div id="logo" style="float: left;">
+  		<img id="logo" height=112.5px width=300px src="images/w-logo.png" alt="logo"/>
+  	</div>
+  	</a>
+  	<br>
+  	<div id="menu">
+  	<a href="/new_patterns">
+  	<img height=105px width=280px src="images/new-patterns-button.png" onmouseover="this.src='images/new-patterns-button-mouseover.png'" onmouseout="this.src='images/new-patterns-button.png'" alt="new-patterns" class="button" id="new-patterns" />
+  	</a>
+  	<a href="/past_patterns">
+  	<img height=105px width=280px src="images/past-patterns-button.png" onmouseover="this.src='images/past-patterns-button-mouseover.png'" onmouseout="this.src='images/past-patterns-button.png'" alt="past-patterns" class="button" id="past-patterns" />
+  	</a>
+  	<br>
+  	<a href="/search_patterns">
+  	<img height=105px width=280px src="images/search-pattern-button.png" onmouseover="this.src='images/search-pattern-button-mouseover.png'" onmouseout="this.src='images/search-pattern-button.png'" alt="search-patterns" class="button" id="search-patterns" />
+  	</a>
+  	<a href="/classroom">
+  	<img height=105px width=280px src="images/classroom-button.png" onmouseover="this.src='images/classroom-button-mouseover.png'" onmouseout="this.src='images/classroom-button.png'" alt="classroom" class="button" id="classroom" />
+  	</a>
+  	<br>
+  	<a href="/about_us">
+  	<img height=105px width=280px src="images/about-us-button.png" onmouseover="this.src='images/about-us-button-mouseover.png'" onmouseout="this.src='images/about-us-button.png'" alt="about-us" class="button" id="about-us" />
+  	</a>
+    <a href="/fyi">
+  	<img height=105px width=280px src="images/fyi-button.png" onmouseover="this.src='images/fyi-button-mouseover.png'" onmouseout="this.src='images/fyi-button.png'" alt="fyi" class="button" id="fyi" />
+  	</a>
+  	</div>
+	<br>
+  	<div id="bottom_links" style="float: left;">
+  	<img src="images/line.png" id="line" />&nbsp&nbsp&nbsp&nbsp<img hspace="10" src="images/line.png" id="line" />
+  	<br>
+  	<a href="/contact_us">Contact Us</a>&nbsp&nbsp&nbsp&nbsp
+  	<a href="/privacy_statement">Privacy Statement</a>&nbsp&nbsp&nbsp&nbsp
+  	<a href="/disclaimer">Disclaimer</a>&nbsp&nbsp&nbsp&nbsp
+  	<a href="/request">Request</a>&nbsp&nbsp&nbsp&nbsp<br>
+  	<br>
+   	<div id="copyright">
+	<font color="white">&copy; W-Stocks.com, All rights reserved.</font>
+	</div>
+	</div>
+  	</th>
+  	
+  	<th id="second_th">
+	<center>
+  	<div id="info">
+  		<b>
+  		<font size=4>Total Patterns Last 5 Days: <font color="93EA47">{{ num_long_five_days }}</font> Longs <font color="93EA47">{{ num_short_five_days }}</font> Shorts</font><br>
+  		<font size=4>Total Patterns Yesterday: <font color="93EA47">{{ num_long_yesterday }}</font> Longs <font color="93EA47">{{ num_short_yesterday }}</font> Shorts</font>
+  		<br><img hspace="10" src="images/line.png" id="line" style="margin-top: 10px;"/>
+  		</b>
+  	</div>
+  	</center>
+	<br style="margin-bottom: 0px;">
+  	
+	<table>
+	<tr>
+   	<div id="sample_chart">
+   	<center><b><font size=4 color="white">-&nbsp{{ pattern.symbol }}&nbsp-</font></b></center><br>
+	   	
+	<!-- TradingView Widget BEGIN -->
+	<script type="text/javascript" src="https://s3.amazonaws.com/tradingview/tv.js"></script>
+	<script type="text/javascript">
+	new TradingView.widget({
+	  "width": 670,
+	  "height": 300,
+	  "symbol": "{{ pattern.symbol }}",
+	  "interval": "D",
+	  "toolbar_bg": "#E4E8EB",
+	  "hide_top_toolbar": false,
+	  "save_image": false
+	});
+	</script>
+	<!-- TradingView Widget END -->
+
+
+
+ 	<br>
+     	<div id="stock_info">
+         	<font color="white">Date:</font> {{ pattern.date }}
+         	<font color="white">Market:</font> {{ pattern.market }}
+         	<font color="white">Symbol:</font>	{{ pattern.symbol }}
+         	<font color="white">Price:</font> {{ pattern.price }}
+         	<font color="white">Pattern:</font> {{ pattern.pattern_name }}
+         	<font color="white">Type:</font> {{ pattern.type }}
+         	<font color="white">Volume:</font> {{ pattern.volumn }}
+       </div>
+   	</div>
+   	<tr>
+   	<div style="margin-top:0.2cm;display:inline;float:right;margin-right:-0.6cm;">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.w-stocks.com" data-text="{{ pattern.symbol }} is showing a {{ pattern.pattern_name }} pattern" data-via="W_Stocks" data-hashtags="{{ pattern.symbol }}, {{ pattern.pattern_name }}, stocks, w-stocks, stockpatterns">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	</div>
+	</tr>
+	</table>
+   	<br><br><br>
+  	</th>
+  	</tr>
+  	</table>
+  	
+  	
+  	
+  	<div id="top_right">
+  	<table style="float:right;">
+  	{% if user %}
+	<tr>
+  	<th>
+  	<a href="/sign_out">
+  	<div id="sign out" style="">
+		<font size="3"><b>Sign Out</b></font>
+	</div>
+	</a>
+	</th>
+	<th style="padding-left:3px; padding-bottom: 6px;">
+	<font color="44D9F2" size="6"><b>|</b></font><br>
+	</th>
+	<th style="padding-left:3px;">
+	<a href="/my_account">
+	<div id="MyAccount" style="">
+		<font size="3"><b>My Account</b></font>
+	</div>
+	</a>
+	</th>
+	</tr>
+	{% else %}
+	<tr>
+  	<th>
+  	<a href="/login">
+  	<div id="login" style="">
+		<font size="3"><b>Login</b></font>
+	</div>
+	</a>
+	</th>
+	<th style="padding-left:3px; padding-bottom: 6px;">
+	<font color="44D9F2" size="6"><b>|</b></font><br>
+	</th>
+	<th style="padding-left:3px;">
+	<a href="/sign_up">
+	<div id="SignUp" style="">
+		<font size="3"><b>SignUp</b></font>
+	</div>
+	</a>
+	</th>
+	</tr>
+	{% endif %}
+	</table>
+	</div>
+
+
+
+  </body>
+  </html>
+  
